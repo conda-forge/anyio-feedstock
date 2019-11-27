@@ -1,5 +1,5 @@
 {% set name = "anyio" %}
-{% set version = "1.0.0" %}
+{% set version = "1.2.1" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 0f47b5ea774cc9d403935c617ff27c7673f87cda0688cd1aab3137ac86283a68
+  sha256: 6d9113ed0a18c3995318378787142b37c625095d3e14dfbe6212b346bfd5fc20
 
 build:
   number: 0
