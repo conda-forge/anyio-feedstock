@@ -5,7 +5,7 @@ Home: https://github.com/agronholm/anyio
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: High level compatibility layer for multiple asynchronous event loop implementations on Python
 
