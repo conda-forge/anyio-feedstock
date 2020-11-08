@@ -16,19 +16,20 @@ source:
 build:
   number: 1
   script: cd dist && {{ PYTHON }} -m pip install . -vv --no-deps
+  skip: true  # [py<36]
 
 requirements:
   host:
     - pip
-    - python >=3.6.2
+    - python
     - setuptools_scm
   run:
     - async_generator  # [py<37]
     - dataclasses  # [py<37]
     - idna >=2.8
-    - python >=3.6.2
+    - python
     - sniffio >=1.1
-    - typing_extensions # [py<38]
+    - typing_extensions  # [py<38]
   run_constrained:
     - trio >=0.16
     - curio >=1.4
