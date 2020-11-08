@@ -57,7 +57,7 @@ test:
     - trio
     - trustme
     # TODO: this doesn't seem to be getting picked up
-    - uvloop  # [unix and python_impl == 'cpython']
+    - uvloop  # [unix]
   imports:
     - anyio
   commands:
