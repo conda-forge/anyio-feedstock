@@ -16,13 +16,13 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python >=3.6.2
     - setuptools_scm
   run:
     - async_generator  # [py<37]
     - dataclasses  # [py<37]
     - idna >=2.8
-    - python >=3.6
+    - python >=3.6.2
     - sniffio >=1.1
     - typing_extensions # [py<38]
   run_constrained:
