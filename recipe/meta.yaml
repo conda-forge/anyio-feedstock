@@ -57,12 +57,11 @@ test:
     - trio
     - trustme
     # TODO: this doesn't seem to be getting picked up
-    - uvloop  # [python_impl == 'cpython' and not win]
+    - uvloop  # [unix and python_impl == 'cpython']
   imports:
     - anyio
   commands:
     - pip check
-    - cd src && pytest -vv --cov anyio --cov-fail-under {{ cov_fail_under }} -k 'not ({{ " or ".join(skips) }})'
 
 about:
   home: https://github.com/agronholm/anyio
