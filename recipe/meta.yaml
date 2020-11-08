@@ -34,15 +34,6 @@ requirements:
     - trio >=0.16
     - curio >=1.4
 
-# TODO: seem to fail with `build-locally.py` due to ipv6 issues
-{% set skips = [
-  "connection_refused",
-  "happy_eyeballs",
-  "ipv6",
-] %}
-# TODO: seems low
-{% set cov_fail_under = 71 %}
-
 test:
   source_files:
     - src/tests
@@ -56,7 +47,7 @@ test:
     - toml
     - trio
     - trustme
-    # TODO: this doesn't seem to be getting picked up
+    # TODO: won't be available on pypy
     - uvloop  # [unix]
   imports:
     - anyio
