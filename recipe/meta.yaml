@@ -6,12 +6,16 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 35075abd32cf20fd7e0be2fee3614e80b92d5392eba257c8d2f33de3df7ca237
+  - folder: dist
+    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    sha256: 35075abd32cf20fd7e0be2fee3614e80b92d5392eba257c8d2f33de3df7ca237
+  - folder: src
+    url: https://github.com/agronholm/{{ name }}/archive/{{ version }}.tar.gz
+    sha256: 2439f9d71d793d72d4e223632b9ef8beafc021989efac7b049f0c73280322d2a
 
 build:
   number: 1
-  script: {{ PYTHON }} -m pip install . -vv
+  script: cd dist && {{ PYTHON }} -m pip install . -vv --no-deps
 
 requirements:
   host:
@@ -29,21 +33,46 @@ requirements:
     - trio >=0.16
     - curio >=1.4
 
+# TODO: seem to fail with `build-locally.py` due to ipv6 issues
+{% set skips = [
+  "connection_refused",
+  "happy_eyeballs",
+  "ipv6",
+] %}
+# TODO: seems low
+{% set cov_fail_under = 71 %}
+
 test:
+  source_files:
+    - src/tests
   requires:
+    - coverage >=4.5
+    - curio
+    - hypothesis >=4.0
     - pip
+    - pytest >=6.0
+    - pytest-cov
+    - toml
+    - trio
+    - trustme
+    # TODO: this doesn't seem to be getting picked up
+    - uvloop  # [python_impl == 'cpython' and not win]
   imports:
     - anyio
   commands:
     - pip check
+    - cd src && pytest -vv --cov anyio --cov-fail-under {{ cov_fail_under }} -k 'not ({{ " or ".join(skips) }})'
 
 about:
   home: https://github.com/agronholm/anyio
   license: MIT
   license_family: MIT
-  license_file: LICENSE
+  license_file: dist/LICENSE
   summary: High level compatibility layer for multiple asynchronous event loop implementations on Python
+  doc_url: https://anyio.readthedocs.io
+  doc_source_url: https://github.com/agronholm/anyio/tree/{{ version }}/docs
 
 extra:
   recipe-maintainers:
     - CJ-Wright
+    - bollwyvl
