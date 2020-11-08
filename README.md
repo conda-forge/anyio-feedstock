@@ -9,6 +9,8 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/anyio-feedstock
 
 Summary: High level compatibility layer for multiple asynchronous event loop implementations on Python
 
+Documentation: https://anyio.readthedocs.io
+
 Current build status
 ====================
 
@@ -148,4 +150,5 @@ Feedstock Maintainers
 =====================
 
 * [@CJ-Wright](https://github.com/CJ-Wright/)
+* [@bollwyvl](https://github.com/bollwyvl/)
 
