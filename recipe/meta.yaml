@@ -10,9 +10,8 @@ source:
   sha256: 35075abd32cf20fd7e0be2fee3614e80b92d5392eba257c8d2f33de3df7ca237
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
-  noarch: python
 
 requirements:
   host:
@@ -20,14 +19,23 @@ requirements:
     - python >=3.6
     - setuptools_scm
   run:
+    - async_generator  # [py<37]
+    - dataclasses  # [py<37]
+    - idna >=2.8
     - python >=3.6
-    - sniffio
-    - curio
-    - trio
+    - sniffio >=1.1
+    - typing_extensions # [py<38]
+  run_constrained:
+    - trio >=0.16
+    - curio >=1.4
 
 test:
+  requires:
+    - pip
   imports:
     - anyio
+  commands:
+    - pip check
 
 about:
   home: https://github.com/agronholm/anyio
