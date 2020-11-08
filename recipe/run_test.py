@@ -10,7 +10,11 @@ try:
 except Exception as err:
     print(f"... uvloop import error, ignoring:\n{err}")
 
-COV_THRESHOLD = "71"
+COV_THRESHOLD = {
+    "win32": "69",
+    "linux": "71",
+    "darwin": "71"
+}.get(sys.platform)
 
 SKIPS = [
     "connection_refused",
