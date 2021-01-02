@@ -14,7 +14,7 @@ source:
     sha256: 2439f9d71d793d72d4e223632b9ef8beafc021989efac7b049f0c73280322d2a
 
 build:
-  number: 2
+  number: 3
   script: cd dist && {{ PYTHON }} -m pip install . -vv --no-deps
   skip: true  # [py<36]
 
@@ -48,7 +48,7 @@ test:
     - trio
     - trustme
     # TODO: won't be available on pypy
-    - uvloop  # [unix]
+    - uvloop  # [unix and python_impl == 'cpython']
   imports:
     - anyio
   commands:
