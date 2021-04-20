@@ -35,14 +35,12 @@ requirements:
     - typing_extensions  # [py<38]
   run_constrained:
     - trio >=0.16
-    - curio >=1.4
 
 test:
   source_files:
     - src/tests
   requires:
     - coverage >=4.5
-    - curio
     - hypothesis >=4.0
     - pip
     - pytest >=6.0
