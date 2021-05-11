@@ -47,7 +47,7 @@ test:
     - pip
     - pytest >=6.0
     - pytest-cov
-    - toml  # from coverage[toml]
+    - toml
     - trustme
     # won't be available on pypy, or windows, any time soon
     - uvloop  # [unix and python_impl == 'cpython']
