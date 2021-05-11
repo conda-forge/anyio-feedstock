@@ -1,19 +1,21 @@
 import os
 import sys
+from pathlib import Path
+import subprocess
 
-import pytest
+HERE = Path(__file__).parent
 
 print("preflighting uvloop...", flush=True)
 try:
     import uvloop
-    print("... uvloop _appears_ to be working!")
+    print(f"... uvloop {uvloop} _appears_ to be working!")
 except Exception as err:
     print(f"... uvloop import error, ignoring:\n{err}")
 
 COV_THRESHOLD = {
-    "win32": "68",
-    "linux": "71",
-    "darwin": "71"
+    "win32": "60",
+    "linux": "67",
+    "darwin": "67"
 }.get(sys.platform)
 
 SKIPS = [
@@ -26,10 +28,11 @@ PYTEST_ARGS = [
     "-vv",
     "--cov", os.environ["PKG_NAME"],
     "--cov-fail-under", COV_THRESHOLD,
-    "-k", f"""not ({" or ".join(SKIPS)})""",
-    "src"
+    "--cov-report", "term-missing:skip-covered",
+    "--no-cov-on-fail",
+    *(["-k", f"""not ({" or ".join(SKIPS)})"""] if SKIPS else [])
 ]
 
 print(">>> pytest", " ".join(PYTEST_ARGS), flush=True)
 
-sys.exit(pytest.main(PYTEST_ARGS))
+sys.exit(subprocess.call(["pytest", *PYTEST_ARGS], cwd=str(HERE / "src")))
