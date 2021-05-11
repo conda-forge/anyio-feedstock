@@ -25,7 +25,7 @@ requirements:
   host:
     - pip
     - python
-    - setuptools_scm
+    - setuptools-scm
   run:
     - async_generator  # [py<37]
     - dataclasses  # [py<37]
@@ -35,22 +35,21 @@ requirements:
     - typing_extensions  # [py<38]
   run_constrained:
     - trio >=0.16
-    - curio >=1.4
 
 test:
   source_files:
     - src/tests
+    - src/pyproject.toml
   requires:
     - coverage >=4.5
-    - curio
+    - trio
     - hypothesis >=4.0
     - pip
     - pytest >=6.0
     - pytest-cov
-    - toml
-    - trio
+    - toml  # from coverage[toml]
     - trustme
-    # TODO: won't be available on pypy
+    # won't be available on pypy, or windows, any time soon
     - uvloop  # [unix and python_impl == 'cpython']
   imports:
     - anyio
