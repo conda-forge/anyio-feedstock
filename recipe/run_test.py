@@ -14,8 +14,8 @@ except Exception as err:
 
 COV_THRESHOLD = {
     "win32": "60",
-    "linux": "67",
-    "darwin": "67"
+    "linux": "66",
+    "darwin": "66"
 }.get(sys.platform)
 
 SKIPS = [
