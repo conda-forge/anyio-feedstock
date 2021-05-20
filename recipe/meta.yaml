@@ -44,9 +44,11 @@ test:
     - coverage >=4.5
     - trio
     - hypothesis >=4.0
+    - mock >=4
     - pip
     - pytest >=6.0
     - pytest-cov
+    - pytest-mock >=3.6.1
     - toml
     - trustme
     # won't be available on pypy, or windows, any time soon
