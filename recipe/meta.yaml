@@ -1,5 +1,5 @@
 {% set name = "anyio" %}
-{% set version = "3.0.1" %}
+{% set version = "3.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,10 +8,10 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 1ef7622396ab55829d4236a6f75e2199df6d26a4ba79bea0cb942a5fd2f79a23
+    sha256: 43e20711a9d003d858d694c12356dc44ab82c03ccc5290313c3392fa349dad0e
   - folder: src
     url: https://github.com/agronholm/{{ name }}/archive/{{ version }}.tar.gz
-    sha256: 45f4169148897135b3e4471a803acea443edc3e18654861dcbacd9faa182f49b
+    sha256: 012c200b3f6566d8909aa922f8c5ad37d059e11eda96fb21348a4a63b4ea4484
 
 build:
   number: 0
@@ -44,9 +44,11 @@ test:
     - coverage >=4.5
     - trio
     - hypothesis >=4.0
+    - mock >=4
     - pip
     - pytest >=6.0
     - pytest-cov
+    - pytest-mock >=3.6.1
     - toml
     - trustme
     # won't be available on pypy, or windows, any time soon
