@@ -22,6 +22,7 @@ SKIPS = [
     "connection_refused",
     "happy_eyeballs",
     "ipv6",
+    "block_device",
 ]
 
 PYTEST_ARGS = [
