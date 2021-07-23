@@ -13,15 +13,16 @@ except Exception as err:
     print(f"... uvloop import error, ignoring:\n{err}")
 
 COV_THRESHOLD = {
-    "win32": "60",
-    "linux": "66",
-    "darwin": "66"
+    "win32": "59",
+    "linux": "65",
+    "darwin": "65"
 }.get(sys.platform)
 
 SKIPS = [
     "connection_refused",
     "happy_eyeballs",
     "ipv6",
+    "block_device",
 ]
 
 PYTEST_ARGS = [
