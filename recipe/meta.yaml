@@ -14,7 +14,7 @@ source:
     sha256: 5872afba5b2a03461e8eb64538d8050d1f64fe54192ad67d8f34f6287ea7c729
 
 build:
-  number: 0
+  number: 1
   script: cd dist && {{ PYTHON }} -m pip install . -vv --no-deps
   skip: true  # [py<36]
 
