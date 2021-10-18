@@ -1,5 +1,5 @@
 {% set name = "anyio" %}
-{% set version = "3.3.3" %}
+{% set version = "3.3.4" %}
 
 package:
   name: {{ name|lower }}
@@ -8,10 +8,10 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 8eccec339cb4a856c94a75d50fc1d451faf32a05ef406be462e2efc59c9838b0
+    sha256: 67da67b5b21f96b9d3d65daa6ea99f5d5282cb09f50eb4456f8fb51dffefc3ff
   - folder: src
     url: https://github.com/agronholm/{{ name }}/archive/{{ version }}.tar.gz
-    sha256: 43e8d43a1c6ee7dd982f130314db6e88eee32f2bcd59a2e70e90329cb1876029
+    sha256: cc9d5a0fbd13a36474d1d57c0668b414bd63861f8dcf4c3f1c5b9fa3093dab0e
 
 build:
   number: 0
