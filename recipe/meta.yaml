@@ -25,12 +25,11 @@ requirements:
   host:
     - pip
     - python
-    - setuptools-scm
+    - setuptools-scm >=3.4
   run:
-    - async_generator  # [py<37]
+    - contextvars  # [py<37]
     - dataclasses  # [py<37]
     - idna >=2.8
-    - python
     - sniffio >=1.1
     - typing_extensions  # [py<38]
   run_constrained:
@@ -41,6 +40,7 @@ test:
     - src/tests
     - src/pyproject.toml
   requires:
+    - contextlib2  # [py<37]
     - coverage >=4.5
     - trio
     - hypothesis >=4.0
