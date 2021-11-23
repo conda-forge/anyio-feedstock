@@ -1,5 +1,5 @@
 {% set name = "anyio" %}
-{% set version = "3.3.4" %}
+{% set version = "3.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,13 +8,13 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 67da67b5b21f96b9d3d65daa6ea99f5d5282cb09f50eb4456f8fb51dffefc3ff
+    sha256: 24adc69309fb5779bc1e06158e143e0b6d2c56b302a3ac3de3083c705a6ed39d
   - folder: src
     url: https://github.com/agronholm/{{ name }}/archive/{{ version }}.tar.gz
-    sha256: cc9d5a0fbd13a36474d1d57c0668b414bd63861f8dcf4c3f1c5b9fa3093dab0e
+    sha256: 5dcba2e18b951cb35108bfd0e45cce4f6bf9723904ccd911f123843c9db5efa6
 
 build:
-  number: 1
+  number: 0
   script: cd dist && {{ PYTHON }} -m pip install . -vv --no-deps
   skip: true  # [py<36]
 
@@ -25,9 +25,9 @@ requirements:
   host:
     - pip
     - python
-    - setuptools-scm
+    - setuptools-scm >=3.4
   run:
-    - async_generator  # [py<37]
+    - contextvars  # [py<37]
     - dataclasses  # [py<37]
     - idna >=2.8
     - python
@@ -41,6 +41,7 @@ test:
     - src/tests
     - src/pyproject.toml
   requires:
+    - contextlib2  # [py<37]
     - coverage >=4.5
     - trio
     - hypothesis >=4.0
