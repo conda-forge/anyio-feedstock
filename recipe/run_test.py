@@ -15,7 +15,7 @@ except Exception as err:
 COV_THRESHOLD = {
     "win32": "59",
     "linux": "65",
-    "darwin": "65"
+    "darwin": "65",
 }.get(sys.platform)
 
 SKIPS = [
@@ -24,6 +24,12 @@ SKIPS = [
     "ipv6",
     "block_device",
 ]
+
+if sys.platform == "win32":
+    SKIPS += [
+        # see https://github.com/conda-forge/anyio-feedstock/pull/41
+        "(TLSStream and extra_attributes and trio)",
+    ]
 
 PYTEST_ARGS = [
     "-vv",
