@@ -1,38 +1,32 @@
-{% set name = "anyio" %}
 {% set version = "3.6.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: anyio
   version: {{ version }}
 
 source:
   - folder: dist
-    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    url: https://pypi.io/packages/source/a/anyio/anyio-{{ version }}.tar.gz
     sha256: 413adf95f93886e442aea925f3ee43baa5a765a64a0f52c6081894f9992fdd0b
   - folder: src
-    url: https://github.com/agronholm/{{ name }}/archive/{{ version }}.tar.gz
+    url: https://github.com/agronholm/anyio/archive/{{ version }}.tar.gz
     sha256: 8e09cf634e7877741fa760b93fb46c352f888d7d3b5a8c9f2d60ca1031f03e42
 
 build:
-  number: 0
+  number: 1
+  noarch: python
   script: cd dist && {{ PYTHON }} -m pip install . -vv --no-deps
-  skip: true  # [py<36]
 
 requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - pip
-    - python
+    - python >=3.7
     - setuptools-scm >=3.4
   run:
-    - contextvars  # [py<37]
-    - dataclasses  # [py<37]
     - idna >=2.8
-    - python
+    - python >=3.7
     - sniffio >=1.1
-    - typing_extensions  # [py<38]
+    - typing_extensions
   run_constrained:
     - trio >=0.16
 
@@ -41,7 +35,6 @@ test:
     - src/tests
     - src/pyproject.toml
   requires:
-    - contextlib2  # [py<37]
     - coverage >=4.5
     - trio
     - hypothesis >=4.0
