@@ -14,7 +14,7 @@ except Exception as err:
 
 COV_THRESHOLD = {
     "win32": "59",
-    "linux": "65",
+    "linux": "86",
     "darwin": "65"
 }.get(sys.platform)
 
