@@ -23,13 +23,14 @@ requirements:
     - python >=3.7
     - setuptools-scm >=3.4
   run:
-    - exceptiongroup
+    # - exceptiongroup  # >=3.6.2
     - idna >=2.8
     - python >=3.7
     - sniffio >=1.1
     - typing_extensions
   run_constrained:
-    - trio >=0.22
+    # - trio >=0.22  # >=3.6.2
+    - trio >= 0.16,<0.22
 
 test:
   source_files:
