@@ -30,7 +30,7 @@ requirements:
     - typing_extensions
   run_constrained:
     # - trio >=0.22  # >=3.6.2
-    - trio >= 0.16,<0.22
+    - trio >=0.16,<0.22
 
 test:
   source_files:
