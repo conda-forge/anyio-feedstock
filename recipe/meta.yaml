@@ -23,12 +23,13 @@ requirements:
     - python >=3.7
     - setuptools-scm >=3.4
   run:
+    - exceptiongroup
     - idna >=2.8
     - python >=3.7
     - sniffio >=1.1
     - typing_extensions
   run_constrained:
-    - trio >=0.16
+    - trio >=0.22
 
 test:
   source_files:
@@ -46,7 +47,7 @@ test:
     - toml
     - trustme
     # won't be available on pypy, or windows, any time soon
-    - uvloop  # [unix and python_impl == 'cpython']
+    - uvloop >=0.17 # [unix and python_impl == 'cpython']
   imports:
     - anyio
   commands:
