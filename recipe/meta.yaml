@@ -47,7 +47,7 @@ test:
     - toml
     - trustme
     # won't be available on pypy, or windows, any time soon
-    - uvloop >=0.17 # [unix and python_impl == 'cpython']
+    - uvloop >=0.17  # [unix and python_impl == 'cpython']
   imports:
     - anyio
   commands:
