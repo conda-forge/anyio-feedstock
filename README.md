@@ -1,11 +1,11 @@
-About anyio
-===========
+About anyio-feedstock
+=====================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/anyio-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/agronholm/anyio
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/anyio-feedstock/blob/main/LICENSE.txt)
 
 Summary: High level compatibility layer for multiple asynchronous event loop implementations on Python
 
