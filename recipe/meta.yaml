@@ -30,7 +30,7 @@ requirements:
     - sniffio >=1.1
     - typing_extensions  # [py<38]
   run_constrained:
-    - trio >=0.22
+    - trio >=0.16,<0.22
 
 test:
   source_files:
