@@ -42,6 +42,7 @@ test:
     - hypothesis >=4.0
     - mock >=4
     - pip
+    - psutil
     - pytest >=6.0
     - pytest-cov
     - pytest-mock >=3.6.1
