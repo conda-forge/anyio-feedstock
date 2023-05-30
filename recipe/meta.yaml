@@ -1,4 +1,4 @@
-{% set version = "3.6.2" %}
+{% set version = "3.7.0" %}
 
 package:
   name: anyio
@@ -7,21 +7,22 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/a/anyio/anyio-{{ version }}.tar.gz
-    sha256: 25ea0d673ae30af41a0c442f81cf3b38c7e79fdc7b60335a4c14e05eb0947421
+    sha256: 275d9973793619a5374e1c89a4f4ad3f4b0a5510a2b5b939444bee8f4c4d37ce
   - folder: src
     url: https://github.com/agronholm/anyio/archive/{{ version }}.tar.gz
-    sha256: befe8a0e100f6a92ad1b15a6e4adc86bb5f1e055f09b125090300ade5b33534d
+    sha256: 2f8c7bede49fa8344a96feee63de52fb9b02881dc3137cd4b5cc770d5cc4b436
 
 build:
   number: 0
   noarch: python
-  script: cd dist && {{ PYTHON }} -m pip install . -vv --no-deps
+  script: cd dist && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - pip
     - python >=3.7
-    - setuptools-scm >=3.4
+    - setuptools >=64
+    - setuptools-scm >=6.4
   run:
     # - exceptiongroup  # >=3.6.2
     - idna >=2.8
@@ -42,6 +43,7 @@ test:
     - hypothesis >=4.0
     - mock >=4
     - pip
+    - psutil
     - pytest >=6.0
     - pytest-cov
     - pytest-mock >=3.6.1
