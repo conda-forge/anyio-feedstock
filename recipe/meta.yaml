@@ -13,7 +13,7 @@ source:
     sha256: 2f8c7bede49fa8344a96feee63de52fb9b02881dc3137cd4b5cc770d5cc4b436
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: cd dist && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -24,14 +24,13 @@ requirements:
     - setuptools >=64
     - setuptools-scm >=6.4
   run:
-    # - exceptiongroup  # >=3.6.2
+    - exceptiongroup
     - idna >=2.8
     - python >=3.7
     - sniffio >=1.1
     - typing_extensions
   run_constrained:
-    # - trio >=0.22  # >=3.6.2
-    - trio >=0.16,<0.22
+    - trio >=0.22
 
 test:
   source_files:
