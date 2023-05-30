@@ -15,13 +15,14 @@ source:
 build:
   number: 0
   noarch: python
-  script: cd dist && {{ PYTHON }} -m pip install . -vv --no-deps
+  script: cd dist && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - pip
     - python >=3.7
-    - setuptools-scm >=3.4
+    - setuptools >=64
+    - setuptools-scm >=6.4
   run:
     # - exceptiongroup  # >=3.6.2
     - idna >=2.8
