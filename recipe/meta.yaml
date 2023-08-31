@@ -20,30 +20,30 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python >=3.8
     - setuptools >=64
     - setuptools-scm >=6.4
   run:
     - exceptiongroup
     - idna >=2.8
-    - python >=3.7
+    - python >=3.8
     - sniffio >=1.1
     - typing_extensions
   run_constrained:
-    - trio >=0.16,<0.22
+    - trio >=0.22
 
 test:
   source_files:
     - src/tests
     - src/pyproject.toml
   requires:
-    - coverage >=4.5
+    - coverage >=7
     - trio
     - hypothesis >=4.0
     - mock >=4
     - pip
-    - psutil
-    - pytest >=6.0
+    - psutil >=5.9
+    - pytest >=7.0
     - pytest-cov
     - pytest-mock >=3.6.1
     - toml
@@ -68,3 +68,4 @@ extra:
   recipe-maintainers:
     - CJ-Wright
     - bollwyvl
+    - davidbrochart
