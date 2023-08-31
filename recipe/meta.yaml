@@ -1,4 +1,4 @@
-{% set version = "3.7.1" %}
+{% set version = "4.0.0" %}
 
 package:
   name: anyio
@@ -7,10 +7,10 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/a/anyio/anyio-{{ version }}.tar.gz
-    sha256: 44a3c9aba0f5defa43261a8b3efb97891f2bd7d804e0e1f56419befa1adfc780
+    sha256: f7ed51751b2c2add651e5747c891b47e26d2a21be5d32d9311dfe9692f3e5d7a
   - folder: src
     url: https://github.com/agronholm/anyio/archive/{{ version }}.tar.gz
-    sha256: aa8ed0d799e61b61f7888e13668d36b467e3368129e8efa92bbf62a9cf063f84
+    sha256: 518a6f319b174b5b7de126ae983035d2205df4ef0f39eb23ac4139cbb1bf3c49
 
 build:
   number: 0
