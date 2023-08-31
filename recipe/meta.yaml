@@ -5,61 +5,58 @@ package:
   version: {{ version }}
 
 source:
-  - folder: dist
-    url: https://pypi.io/packages/source/a/anyio/anyio-{{ version }}.tar.gz
-    sha256: f7ed51751b2c2add651e5747c891b47e26d2a21be5d32d9311dfe9692f3e5d7a
-  - folder: src
-    url: https://github.com/agronholm/anyio/archive/{{ version }}.tar.gz
-    sha256: 518a6f319b174b5b7de126ae983035d2205df4ef0f39eb23ac4139cbb1bf3c49
+  url: https://pypi.io/packages/source/a/anyio/anyio-{{ version }}.tar.gz
+  sha256: f7ed51751b2c2add651e5747c891b47e26d2a21be5d32d9311dfe9692f3e5d7a
 
 build:
   number: 0
   noarch: python
-  script: cd dist && {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python >=3.8
     - setuptools >=64
     - setuptools-scm >=6.4
   run:
     - exceptiongroup
     - idna >=2.8
-    - python >=3.7
+    - python >=3.8
     - sniffio >=1.1
-    - typing_extensions
   run_constrained:
-    - trio >=0.16,<0.22
+    - trio >=0.22
 
 test:
   source_files:
-    - src/tests
-    - src/pyproject.toml
+    - tests
+    - pyproject.toml
   requires:
-    - coverage >=4.5
-    - trio
+    - coverage >=7
     - hypothesis >=4.0
     - mock >=4
     - pip
-    - psutil
-    - pytest >=6.0
+    - psutil >=5.9
+    - pytest >=7.0
     - pytest-cov
     - pytest-mock >=3.6.1
-    - toml
+    - tomli
+    - trio
     - trustme
     # won't be available on pypy, or windows, any time soon
     - uvloop >=0.17  # [unix and python_impl == 'cpython']
   imports:
     - anyio
   commands:
-    - pip check
+    {% set cov_fail_under = "" %}
+    {% set cov_fail_under = "--cov-fail-under=86" %}  # [linux]
+    - pytest -vv --cov=anyio --cov-branch --cov-report=term-missing:skip-covered -k="not (bind_link_local or block_device or connection_refused or happy_eyeballs or ipv6)" {{ cov_fail_under }}
 
 about:
   home: https://github.com/agronholm/anyio
   license: MIT
   license_family: MIT
-  license_file: dist/LICENSE
+  license_file: LICENSE
   summary: High level compatibility layer for multiple asynchronous event loop implementations on Python
   doc_url: https://anyio.readthedocs.io
   doc_source_url: https://github.com/agronholm/anyio/tree/{{ version }}/docs
