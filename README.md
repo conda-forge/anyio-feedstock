@@ -147,4 +147,5 @@ Feedstock Maintainers
 
 * [@CJ-Wright](https://github.com/CJ-Wright/)
 * [@bollwyvl](https://github.com/bollwyvl/)
+* [@davidbrochart](https://github.com/davidbrochart/)
 
