@@ -1,4 +1,4 @@
-{% set version = "4.0.0" %}
+{% set version = "4.1.0" %}
 
 package:
   name: anyio
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/a/anyio/anyio-{{ version }}.tar.gz
-  sha256: f7ed51751b2c2add651e5747c891b47e26d2a21be5d32d9311dfe9692f3e5d7a
+  sha256: 5a0bec7085176715be77df87fc66d6c9d70626bd752fcc85f57cdbee5b3760da
 
 build:
   number: 0
@@ -20,12 +20,13 @@ requirements:
     - setuptools >=64
     - setuptools-scm >=6.4
   run:
-    - exceptiongroup
+    - exceptiongroup >=1.0.2
     - idna >=2.8
     - python >=3.8
     - sniffio >=1.1
   run_constrained:
-    - trio >=0.22
+    - trio >=0.23
+    - uvloop >=0.17
 
 test:
   source_files:
@@ -33,6 +34,7 @@ test:
     - pyproject.toml
   requires:
     - coverage >=7
+    - exceptiongroup >=1.2.0
     - hypothesis >=4.0
     - mock >=4
     - pip
@@ -44,7 +46,7 @@ test:
     - trio
     - trustme
     # won't be available on pypy, or windows, any time soon
-    - uvloop >=0.17  # [unix and python_impl == 'cpython']
+    - uvloop  # [unix and python_impl == 'cpython']
   imports:
     - anyio
   commands:
