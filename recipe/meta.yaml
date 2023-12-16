@@ -1,4 +1,6 @@
-{% set version = "4.1.0" %}
+{% set cov_fail_under = "" %}
+{% set cov_fail_under = "--cov-fail-under=86" %}  # [linux]
+{% set version = "4.2.0" %}
 
 package:
   name: anyio
@@ -6,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/a/anyio/anyio-{{ version }}.tar.gz
-  sha256: 5a0bec7085176715be77df87fc66d6c9d70626bd752fcc85f57cdbee5b3760da
+  sha256: e1875bb4b4e2de1669f4bc7869b6d3f54231cdced71605e6e64c9be77e3be50f
 
 build:
   number: 0
