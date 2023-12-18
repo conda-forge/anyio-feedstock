@@ -1,6 +1,6 @@
+{% set version = "4.2.0" %}
 {% set cov_fail_under = "" %}
 {% set cov_fail_under = "--cov-fail-under=86" %}  # [linux]
-{% set version = "4.2.0" %}
 
 package:
   name: anyio
