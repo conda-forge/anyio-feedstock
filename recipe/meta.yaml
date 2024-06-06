@@ -67,5 +67,6 @@ about:
 
 extra:
   recipe-maintainers:
+    - dhirschfeld
     - CJ-Wright
     - bollwyvl
