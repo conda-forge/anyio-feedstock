@@ -1,6 +1,4 @@
 {% set version = "4.5.0" %}
-{% set cov_fail_under = "" %}
-{% set cov_fail_under = "--cov-fail-under=86" %}  # [linux]
 
 package:
   name: anyio
@@ -43,17 +41,18 @@ test:
     - pip
     - psutil >=5.9
     - pytest >=7.0
-    - pytest-cov
     - pytest-mock >=3.6.1
     - tomli
     - trio
     - trustme
-    # won't be available on pypy, or windows, any time soon
-    - uvloop  # [unix and python_impl == 'cpython']
+    # TODO restore after https://github.com/conda-forge/anyio-feedstock/issues/64
+    # # won't be available on pypy, or windows, any time soon
+    # - uvloop  # [unix and python_impl == 'cpython']
   imports:
     - anyio
   commands:
-    - pytest -vv --cov=anyio --cov-branch --cov-report=term-missing:skip-covered -k="not (bind_link_local or block_device or connection_refused or happy_eyeballs or ipv6)" {{ cov_fail_under }}
+    - coverage run --source anyio --branch -m pytest -k="not (bind_link_local or block_device or connection_refused or happy_eyeballs or ipv6)"
+    - coverage report --show-missing --skip-covered --fail-under 87  # [linux]
 
 about:
   home: https://github.com/agronholm/anyio
