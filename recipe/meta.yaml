@@ -1,4 +1,4 @@
-{% set version = "4.5.0" %}
+{% set version = "4.6.0" %}
 
 package:
   name: anyio
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/a/anyio/anyio-{{ version }}.tar.gz
-  sha256: c5a275fe5ca0afd788001f58fca1e69e29ce706d746e317d660e21f70c530ef9
+  sha256: 137b4559cbb034c477165047febb6ff83f390fc3b20bf181c1fc0a728cb8beeb
 
 build:
   number: 0
