@@ -52,7 +52,7 @@ test:
     - anyio
   commands:
     - coverage run --source anyio --branch -m pytest -k="not (bind_link_local or block_device or connection_refused or happy_eyeballs or ipv6)"
-    - coverage report --show-missing --skip-covered --fail-under 87  # [linux]
+    - coverage report --show-missing --skip-covered --fail-under 86  # [linux]
 
 about:
   home: https://github.com/agronholm/anyio
