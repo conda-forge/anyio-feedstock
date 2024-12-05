@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/a/anyio/anyio-{{ version }}.tar.gz
-  sha256: 2f834749c602966b7d456a7567cafcb309f96482b5081d14ac93ccd457f9dd48
+  sha256: 137b4559cbb034c477165047febb6ff83f390fc3b20bf181c1fc0a728cb8beeb
 
 build:
   number: 0
