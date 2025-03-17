@@ -9,7 +9,7 @@ Package license: MIT
 
 Summary: High level compatibility layer for multiple asynchronous event loop implementations on Python
 
-Documentation: https://anyio.readthedocs.io
+Documentation: https://anyio.readthedocs.io/
 
 Current build status
 ====================
