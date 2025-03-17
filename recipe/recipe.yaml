@@ -49,15 +49,14 @@ tests:
         - pyproject.toml
     requirements:
       run:
-        - python-blockbuster >=1.5.23
         - coverage >=7
         - exceptiongroup >=1.2.0
         - hypothesis >=4.0
-        - mock >=4
         - psutil >=5.9
         - pytest >=7.0
         - pytest-mock >=3.6.1
-        - python ${{ python_min }}
+        - python ${{ python_min }}.*
+        - python-blockbuster >=1.5.23
         - tomli
         - trio
         - trustme
@@ -65,7 +64,10 @@ tests:
           then:
             - uvloop
     script:
-      - python run_test.py
+      env:
+        PYTEST_DISABLE_PLUGIN_AUTOLOAD: "1"
+      content:
+        - python run_test.py
 
 about:
   license: MIT

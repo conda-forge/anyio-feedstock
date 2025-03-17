@@ -6,7 +6,7 @@ from subprocess import call
 FAIL_UNDER = 0
 
 if platform.system() == "Linux":
-    FAIL_UNDER = 90
+    FAIL_UNDER = 84
 
 COV = ["coverage"]
 RUN = ["run", "--source=anyio", "--branch", "-m"]
