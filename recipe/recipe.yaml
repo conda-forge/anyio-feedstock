@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: 4.10.0
+  version: 4.11.0
 
 package:
   name: anyio
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/a/anyio/anyio-${{ version }}.tar.gz
-  sha256: 3f3fae35c96039744587aa5b8371e7e8e603c0702999535961dd336026973ba6
+  sha256: 82a8d0b81e318cc5ce71a5f1f8b5c4e63619620b63141ef8c995fa0db95a57c4
 
 build:
   number: 0
@@ -31,7 +31,7 @@ requirements:
     - sniffio >=1.1
     - typing_extensions >=4.5
   run_constraints:
-    - trio >=0.26.1
+    - trio >=0.31.0
     - uvloop >=0.21
 
 tests:
@@ -60,6 +60,7 @@ tests:
         - tomli
         - trio
         - trustme
+        - truststore >=0.9.1
         - if: unix
           then:
             - uvloop

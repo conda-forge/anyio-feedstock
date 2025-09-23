@@ -19,6 +19,10 @@ SKIPS = [
     "connection_refused",
     "happy_eyeballs",
     "ipv6",
+    # https://github.com/conda-forge/anyio-feedstock/pull/78
+    "tcp_listener_retry_after_partial_failure",
+    "tcp_listener_dualstack_disabled",
+    "tcp_listener_same_port",
 ]
 
 SKIP_OR = " or ".join(SKIPS)
