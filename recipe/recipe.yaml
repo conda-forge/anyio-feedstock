@@ -31,7 +31,7 @@ requirements:
     - sniffio >=1.1
     - typing_extensions >=4.5
   run_constraints:
-    - trio >=0.26.1
+    - trio >=0.31.0
     - uvloop >=0.21
 
 tests:
@@ -60,6 +60,7 @@ tests:
         - tomli
         - trio
         - trustme
+        - truststore >=0.9.1
         - if: unix
           then:
             - uvloop
