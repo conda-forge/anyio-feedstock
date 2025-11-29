@@ -42,8 +42,6 @@ tests:
         - ${{ python_min }}.*
         - ${{ python_check_max }}.*
   - files:
-      recipe:
-        - run_test.py
       source:
         - tests/
         - pyproject.toml
@@ -67,8 +65,7 @@ tests:
     script:
       env:
         PYTEST_DISABLE_PLUGIN_AUTOLOAD: "1"
-      content:
-        - python run_test.py
+      file: run_test.py
 
 about:
   license: MIT
