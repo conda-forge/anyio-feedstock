@@ -28,10 +28,9 @@ requirements:
     - exceptiongroup >=1.0.2
     - idna >=2.8
     - python >=${{ python_min }}
-    - sniffio >=1.1
     - typing_extensions >=4.5
   run_constraints:
-    - trio >=0.31.0
+    - trio >=0.32.0
     - uvloop >=0.21
 
 tests:
