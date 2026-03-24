@@ -3,11 +3,13 @@ About anyio-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/anyio-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/agronholm/anyio
+Home: https://pypi.org/project/anyio
 
 Package license: MIT
 
 Summary: High level compatibility layer for multiple asynchronous event loop implementations on Python
+
+Development: https://github.com/agronholm/anyio
 
 Documentation: https://anyio.readthedocs.io/
 
@@ -15,11 +17,10 @@ Current build status
 ====================
 
 
-<table><tr><td>All platforms:</td>
+<table><tr>
+    <td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7776&branchName=main">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/anyio-feedstock?branchName=main">
-      </a>
+      <img src="https://img.shields.io/badge/noarch-disabled-lightgrey.svg" alt="noarch disabled">
     </td>
   </tr>
 </table>
