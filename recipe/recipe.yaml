@@ -51,8 +51,9 @@ tests:
         - coverage >=7
         - hypothesis >=4.18.2
         - psutil >=5.9
-        - pytest >=8.4
+        - pytest >=9
         - pytest-mock >=3.14
+        - pytest-timeout >=2.4.0
         - python ${{ python_min }}.*
         - python-blockbuster >=1.5.23
         - tomli
