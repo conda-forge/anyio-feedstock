@@ -37,6 +37,8 @@ requirements:
 tests:
   - package_contents:
       strict: true
+      files:
+        - etc/conda/test-files/anyio/**
       site_packages:
         - anyio/**
         - anyio-${{ version }}.dist-info/**

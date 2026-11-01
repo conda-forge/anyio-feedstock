@@ -25,6 +25,8 @@ SKIPS = [
     "tcp_listener_same_port",
     # https://github.com/conda-forge/anyio-feedstock/pull/88
     "sourceless_install",
+    # https://github.com/conda-forge/anyio-feedstock/pull/94
+    "getaddrinfo and asyncio and uvloop",
 ]
 
 SKIP_OR = " or ".join(SKIPS)
