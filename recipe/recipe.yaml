@@ -38,7 +38,7 @@ tests:
   - package_contents:
       strict: true
       site_packages:
-        - anyio/
+        - anyio/**
         - anyio-${{ version }}.dist-info/**
   - python:
       imports: anyio
