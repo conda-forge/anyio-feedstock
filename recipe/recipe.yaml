@@ -2,8 +2,8 @@
 schema_version: 1
 
 context:
-  version: "4.15.1"
-  python_check_max: "3.14"
+  version: "4.16.0"
+  python_check_max: "3.15"
 
 package:
   name: anyio
@@ -11,13 +11,13 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/a/anyio/anyio-${{ version }}.tar.gz
-  sha256: 9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94
+  sha256: 59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb
 
 build:
   number: 1
   noarch: python
   script:
-    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check --check-build-dependencies
 
 requirements:
   host:
@@ -35,6 +35,11 @@ requirements:
     - winloop >=0.2.3
 
 tests:
+  - package_contents:
+      strict: true
+      site_packages:
+        - anyio/
+        - anyio-${{ version }}.dist-info/**
   - python:
       imports: anyio
       pip_check: true
